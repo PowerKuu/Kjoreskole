@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@200;300;400;500;600&display=swap");
+
+:root {
+    --text: #7C7C7C;
+    --color: #4870FF;
+    --contrast: #21212E;
+
+    --padding: 6rem;
+}
+
+html {
+    font-size: 20px;
+}
+
+* {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+
+body {
+    font-family: "Inter", sans-serif;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 3.25rem;
+}
+
+h1 span {
+    font-weight: 600;
+    color: var(--color);
+    text-decoration: underline;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 3.25rem;
+}
+
+h3 {
+    text-decoration: underline;
+    font-size: 1.5rem;
+}
+
+span {
+    font-weight: 600;
+    font-size: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    color: var(--text);
+}
