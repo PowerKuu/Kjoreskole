@@ -9,7 +9,7 @@ import Button from "./Button.vue"
 <Flex tag="nav" align="center" justify="space-between" class="navbar">
     <Flex gap="1" align="center">
         <RouterLink to="/" class="center">
-            <img class="icon" src="@/assets/car.svg" alt="">
+            <img class="icon" src="/src/assets/car.svg" alt="">
         </RouterLink>
 
         <RouterLink to="/">

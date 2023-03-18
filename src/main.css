@@ -25,6 +25,8 @@ body {
 h1 {
     font-weight: 600;
     font-size: 3.25rem;
+
+    color: var(--contrast);
 }
 
 h1 span {
@@ -36,11 +38,15 @@ h1 span {
 h2 {
     font-weight: 600;
     font-size: 3.25rem;
+
+    color: var(--contrast);
 }
 
 h3 {
     text-decoration: underline;
     font-size: 1.5rem;
+
+    color: var(--contrast);
 }
 
 span {
