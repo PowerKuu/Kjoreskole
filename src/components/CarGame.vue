@@ -52,6 +52,9 @@ function init() {
 
     canvas.height = height
 
+    window.onkeyup = function({key}) { pressedKeys[key] = false }
+    window.onkeydown = function({key}) { pressedKeys[key] = true }
+
     draw(ctx, canvas)
 }
 
@@ -109,7 +112,7 @@ function draw(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
 
     async function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
-        canvas.width = ((canvas.parentElement?.clientWidth || 0)/1.5)
+        canvas.width = ((canvas.parentElement?.clientWidth || 0)/1.2)
 
         gameState.coneSpawnCurrentFrame += 1
         gameState.updateGameStateCurrentFrame += 1
@@ -177,16 +180,12 @@ function draw(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
         ctx.drawImage(playerImage, gameState.playerX, canvas.height / 2, gameState.playerWidth, gameState.playerWidth*2)
     }
 
-
     setInterval(animate, 20)
 }
 
 
 onMounted(() => {
     init()
-
-    window.onkeyup = function({key}) { pressedKeys[key] = false }
-    window.onkeydown = function({key}) { pressedKeys[key] = true }
 })
 </script>
 
