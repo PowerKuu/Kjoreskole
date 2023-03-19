@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from "vue"
 
-const { width, height } = defineProps<{
-    width: number
+const { height } = defineProps<{
     height: number
 }>()
 
@@ -51,7 +50,6 @@ function init() {
     const parent = canvas.parentElement
     if (!ctx || !parent) return
 
-    canvas.width = width
     canvas.height = height
 
     draw(ctx, canvas)
@@ -91,8 +89,6 @@ function draw(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
             x: getRandomFloat(gameState.conesMargin, canvas.width - gameState.conesMargin),
             y: -100
         })
-
-        console.log(gameState.cones)
     }
 
     function updateGameState() {
@@ -102,25 +98,24 @@ function draw(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
     }
 
     function resetGame() {
+        gameState.cones = []
+
         gameState.speed = 5
         gameState.coneSpawnFrame = 60
         gameState.playerSpeed = 8
 
-        gameState.cones = []
-        gameState.roadY = 0
         gameState.playerX = canvas.width / 2 - (gameState.playerWidth / 2)
     }
 
-    function animate() {
+    async function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
+        canvas.width = ((canvas.parentElement?.clientWidth || 0)/1.5)
 
         gameState.coneSpawnCurrentFrame += 1
         gameState.updateGameStateCurrentFrame += 1
 
-
-        // Seamless reapeating road no gaps no seams
-        ctx.drawImage(roadImage, canvas.width/2, gameState.roadY, 20, canvas.height)
-        ctx.drawImage(roadImage, canvas.width/2, gameState.roadY - canvas.height, 20, canvas.height)
+        ctx.drawImage(roadImage, (canvas.width/2)-roadImage.width/2, gameState.roadY, 20, canvas.height)
+        ctx.drawImage(roadImage, (canvas.width/2)-roadImage.width/2, gameState.roadY - canvas.height, 20, canvas.height+1)
 
         if (gameState.roadY > canvas.height) gameState.roadY = 0
 
@@ -137,6 +132,11 @@ function draw(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
             gameState.updateGameStateCurrentFrame = 0
         }
 
+            
+        async function removeAsync(cone:any) {
+            gameState.cones = gameState.cones.filter((c:any) => c !== cone)
+        }
+
         for (let cone of gameState.cones) {
             cone.y += gameState.speed
 
@@ -150,11 +150,14 @@ function draw(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
                 y: canvas.height / 2,
                 width: gameState.playerWidth,
                 height: gameState.playerWidth*2
-            }, -15, -30)) {
+            }, -22.5, -32.5)) {
                 resetGame()
             }
 
-            if (cone.y > canvas.height) gameState.cones.splice(gameState.cones.indexOf(cone), 1)
+            if (cone.y > canvas.height) { 
+                removeAsync(cone)
+                continue
+            }
             ctx.drawImage(coneImage, cone.x, cone.y, 50, 50)
         }
 
@@ -171,36 +174,11 @@ function draw(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
             if (gameState.playerX < right) gameState.playerX += gameState.playerSpeed
         }
 
-    
-        
-
         ctx.drawImage(playerImage, gameState.playerX, canvas.height / 2, gameState.playerWidth, gameState.playerWidth*2)
     }
 
-    let fps = 50
 
-    let interval = Math.floor(1000 / fps)
-    let startTime = performance.now()
-    let previousTime = startTime
-
-    let currentTime = 0
-    let deltaTime = 0
-
-
-    function frame(timestamp:number) {
-        currentTime = timestamp
-        deltaTime = currentTime - previousTime
-
-        if (deltaTime > interval) {
-            previousTime = currentTime - (deltaTime % interval)
-
-            animate()
-        }
-
-        requestAnimationFrame(frame)
-    }
-
-    requestAnimationFrame(frame)
+    setInterval(animate, 20)
 }
 
 
