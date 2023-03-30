@@ -2,7 +2,6 @@
 import { RouterLink } from "vue-router"
 import Flex from "./FlexSystem.vue"
 import Button from "./Button.vue"
-
 </script>
 
 <template>

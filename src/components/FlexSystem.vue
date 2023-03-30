@@ -49,19 +49,19 @@ const mergedProps = mergeProps(deafultProps, props)
 </script>
 
 <template>
-<component :is="mergedProps.tag" :style="{
-    display: 'flex',
-    flexDirection: mergedProps.direction,
-    gap: mergedProps.gap + 'rem',
-    alignItems: mergedProps.align,
-    justifyContent: mergedProps.justify,
-    flex: mergedProps.grow,
-    alignSelf: mergedProps.alignSelf,
-    justifySelf: mergedProps.justifySelf,
+    <component :is="mergedProps.tag" :style="{
+        display: 'flex',
+        flexDirection: mergedProps.direction,
+        gap: mergedProps.gap + 'rem',
+        alignItems: mergedProps.align,
+        justifyContent: mergedProps.justify,
+        flex: mergedProps.grow,
+        alignSelf: mergedProps.alignSelf,
+        justifySelf: mergedProps.justifySelf,
 
-    height: mergedProps.height,
-    width: mergedProps.width
-}">
+        height: mergedProps.height,
+        width: mergedProps.width
+    }">
     <slot></slot>
 </component>
 </template>

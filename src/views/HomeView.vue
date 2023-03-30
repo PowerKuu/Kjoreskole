@@ -3,6 +3,7 @@ import Flex from "@/components/FlexSystem.vue"
 import Button from "@/components/Button.vue"
 import CarGame from "@/components/CarGame.vue"
 import Separator from "@/components/Separator.vue"
+import PriceCalculator from "@/components/PriceCalculator.vue"
 </script>
 
 <template>
@@ -23,10 +24,21 @@ import Separator from "@/components/Separator.vue"
 
   <Separator></Separator>
 
-  <Flex align="stretch" gap="1">
+  <Flex align="stretch" gap="6">
     <Flex class="left" direction="column" gap="1" grow="1">
-      <h1>Pris kalkulator</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <Flex class="left" direction="column" gap="1" grow="1">
+        <h1>Pris kalkulator</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <PriceCalculator></PriceCalculator>
+      </Flex>
+      <Flex gap="1">
+        <RouterLink to="/drive">
+          <Button theme="color">Kjør</Button>
+        </RouterLink>
+        <RouterLink to="/about">
+          <Button theme="none">Lær mer</Button>
+        </RouterLink>
+      </Flex>
     </Flex>
 
     <Flex direction="column" grow="1" align="center" class="car-illustration">

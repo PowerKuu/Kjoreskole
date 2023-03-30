@@ -190,8 +190,8 @@ onMounted(() => {
 </script>
 
 <template>
-<canvas class="canvas" ref="canvas"></canvas>
-</template>
+    <canvas class="canvas" ref="canvas"></canvas>
+    </template>
 
-<style scoped>
+    <style scoped>
 </style>

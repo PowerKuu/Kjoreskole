@@ -50,6 +50,14 @@ h3 {
     color: var(--contrast);
 }
 
+h4 {
+    font-weight: 500;
+    font-size: 1.25rem;
+    text-decoration: underline;
+
+    color: white;
+}
+
 span {
     font-weight: 600;
     font-size: inherit;
@@ -59,6 +67,21 @@ a {
     text-decoration: none;
 }
 
+a > *:hover {
+    text-decoration: underline;
+}
+
 p {
     color: var(--text);
+}
+
+input {
+    border: 2px white solid;
+    background: none;
+    color: white;
+    padding-left: 0.5rem;
+}
+
+::placeholder {
+    color: #E2E2E2;
 }
