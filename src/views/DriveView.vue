@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import Flex from "@/components/FlexSystem.vue"
-import Button from "@/components/Button.vue"
 import DriverCard from "@/components/DriverCard.vue"
 </script>
 <template>
-    <div class="">
-
-    </div>
+    <Flex class="cards" gap="1">
+        <DriverCard :classes="['A1', 'B1']"  selfie="/marthin.png" name="Kari">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        </DriverCard>
+    </Flex>
 </template>
 
 <style scoped>
