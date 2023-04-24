@@ -4,7 +4,7 @@ import DriverCard from "@/components/DriverCard.vue"
 </script>
 <template>
     <Flex class="cards" gap="1">
-        <DriverCard :classes="['A1', 'B1']"  selfie="/marthin.png" name="Kari">
+        <DriverCard driverID="123" :classes="['A1', 'B1']" selfie="/marthin.png" name="Kari">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         </DriverCard>
     </Flex>

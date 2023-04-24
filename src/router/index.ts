@@ -11,6 +11,11 @@ const router = createRouter({
       path: "/drive",
       name: "drive",
       component: () => import("@/views/DriveView.vue")
+    },
+    {
+      path: "/drive/:id",
+      name: "book",
+      component: () => import("@/views/BookView.vue")
     }
   ]
 })

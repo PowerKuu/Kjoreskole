@@ -5,7 +5,8 @@ import Button from "./Button.vue"
 const { name, selfie, classes } = defineProps<{
     selfie: string,
     name: string,
-    classes: string[]
+    classes: string[],
+    driverID: string
 }>()
 </script>
 
@@ -17,7 +18,9 @@ const { name, selfie, classes } = defineProps<{
         <p class="classes">{{ classes.join(", ") }}</p>
     </Flex>
     <p><slot></slot></p>
-    <Button theme="color">Book</Button>
+    <RouterLink :to="`/drive/${driverID}`">
+        <Button theme="color">Book</Button>
+    </RouterLink>
 </Flex>
 </template>
 

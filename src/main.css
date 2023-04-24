@@ -75,11 +75,32 @@ p {
     color: var(--text);
 }
 
-input {
-    border: 2px white solid;
+input, textarea, select {
+    outline: 2px var(--weak) solid;
     background: none;
-    color: white;
-    padding-left: 0.5rem;
+    color: var(--contrast);
+
+    border: 0;
+    transition: 0.2s;
+}
+
+select {
+    padding: 0.5rem;
+    -webkit-appearance: none;
+    appearance: none;
+
+    background-image: url("@/assets/dropdown.svg");
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 8px) center;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline-color: var(--contrast);
+}
+
+textarea {
+    padding: 0.5rem;
 }
 
 ::placeholder {

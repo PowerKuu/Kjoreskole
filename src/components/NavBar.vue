@@ -20,7 +20,10 @@ import Button from "./Button.vue"
         <RouterLink to="/about">
             <p>Om oss</p>
         </RouterLink>
-        <RouterLink to="/#calculator">
+        <RouterLink :to="{
+            path: '/',
+            hash: '#calculator'
+        }">
             <p>Pris kalkulator</p>
         </RouterLink>
         <RouterLink to="/contact">

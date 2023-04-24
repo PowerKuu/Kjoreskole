@@ -4,6 +4,34 @@ import Button from "@/components/Button.vue"
 import CarGame from "@/components/CarGame.vue"
 import Separator from "@/components/Separator.vue"
 import PriceCalculator from "@/components/PriceCalculator.vue"
+import { useRoute } from "vue-router"
+import { onMounted, ref, watch } from "vue"
+import router from "@/router"
+
+const route = useRoute()
+
+const scrollElement = ref()
+
+watch(route, updateRoute)
+onMounted(updateRoute)
+
+function scrollCalulator() {
+  scrollElement.value.scrollIntoView({
+    behavior: "smooth",
+    block: "center",
+    inline: "nearest"
+  })
+
+  router.push({
+    hash: ''
+  })
+}
+
+function updateRoute() {
+  if (route.hash == "#calculator"){
+    if (scrollElement.value) scrollCalulator()
+  }
+}
 </script>
 
 <template>
@@ -28,7 +56,7 @@ import PriceCalculator from "@/components/PriceCalculator.vue"
     <Flex class="left" direction="column" gap="1" grow="1">
       <Flex class="left" direction="column" gap="1" grow="1">
         <h1>Pris kalkulator</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p :ref="(elem) => {scrollElement = elem}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         <PriceCalculator></PriceCalculator>
       </Flex>
       <Flex gap="1">
