@@ -1,7 +1,36 @@
 <script setup lang="ts">
 import Flex from "@/components/FlexSystem.vue"
 import Button from "@/components/Button.vue"
+import { collection, doc, setDoc } from "firebase/firestore"
+import { db } from "@/firebase"
+import { ref } from "vue"
 
+const defaultProps = {
+    name: "",
+    phone: "",
+    email: "",
+    teacher: "",
+    course: "",
+    message: ""
+}
+
+const formData = ref<{
+    name: string,
+    phone: string,
+    email: string,
+    teacher: string,
+    course: string,
+    message: string
+}>(defaultProps)
+
+
+async function sendForm() {
+    const collectionRef = collection(db, "drive")
+    console.log(formData.value)
+    await setDoc(doc(collectionRef, formData.value.email), formData.value)
+
+    formData.value = defaultProps
+}
 </script>
 
 <template>
@@ -15,17 +44,17 @@ import Button from "@/components/Button.vue"
             <Flex align="stretch" gap="0.75">
                 <Flex direction="column" class="grow">
                     <p class="tip">Navn</p>
-                    <input class="grow" type="text" placeholder="Per ove"> 
+                    <input v-model="formData.name" class="grow" type="text" placeholder="Per ove"> 
                 </Flex>
                 <Flex direction="column" class="grow">
                     <p class="tip">Telefonnummer</p>
-                    <input class="grow" type="text" placeholder="40365505">
+                    <input v-model="formData.phone" class="grow" type="text" placeholder="40365505">
                 </Flex>
             </Flex>
 
             <Flex direction="column">
                 <p class="tip">Email</p>
-                <input type="text" placeholder="per@ole.com">
+                <input v-model="formData.email" type="text" placeholder="per@ole.com">
             </Flex>
 
             <Flex direction="column" align="stretch">
