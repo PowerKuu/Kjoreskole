@@ -82,6 +82,8 @@ input, textarea, select {
 
     border: 0;
     transition: 0.2s;
+
+    border-radius: 5px;
 }
 
 select {
@@ -93,6 +95,8 @@ select {
     background-size: 24px;
     background-repeat: no-repeat;
     background-position: calc(100% - 8px) center;
+
+    border-radius: 5px;
 }
 
 input:focus, textarea:focus, select:focus {

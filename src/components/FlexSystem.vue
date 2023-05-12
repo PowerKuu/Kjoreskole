@@ -108,9 +108,6 @@ input, textarea {
     resize: none; 
 
     width: 100%;
-
-
-    padding: 0.6rem 1rem;
 }
 
 button {

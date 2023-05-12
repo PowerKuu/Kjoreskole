@@ -35,6 +35,8 @@ const { name, selfie, classes } = defineProps<{
     padding: 1rem;
 
     text-align: center;
+
+    border-radius: 5px;
 }
 .name {
     font-size: 1.25rem;

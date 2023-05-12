@@ -46,4 +46,12 @@ const { theme } = defineProps<{
         color: var(--contrast);
         background-color: white;
     }
+
+    .button {
+        border-radius: 5px;
+    }
+
+    .button:hover {
+        opacity: 0.8;
+    }
 </style>

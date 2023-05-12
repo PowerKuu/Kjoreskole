@@ -16,6 +16,11 @@ const router = createRouter({
       path: "/drive/:id",
       name: "book",
       component: () => import("@/views/BookView.vue")
+    },
+    {
+      path: "/contact",
+      name: "contact",
+      component: () => import("@/views/ContactView.vue")
     }
   ]
 })

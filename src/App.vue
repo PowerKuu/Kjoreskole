@@ -14,6 +14,6 @@ import Footer from "@/components/Footer.vue"
 
 <style scoped>
 .container {
-    padding: 6rem var(--padding);
+    padding: 4rem var(--padding);
 }
 </style>

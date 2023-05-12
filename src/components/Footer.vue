@@ -62,6 +62,10 @@ function mailSubmit() {
 
 .submit {
     height: 100%;
+    border: 2px white solid;
+    border-radius: 0 5px 5px 0;
+
+    transition: 0.2s;
 }
 
 .form {
@@ -70,6 +74,12 @@ function mailSubmit() {
 
 .input {
     width: 100%;
+    border: 2px white solid;
+    border-radius: 5px 0 0 5px;
+    border-right: 0;
+
+    outline: 0;
+    color: white;
 }
 
 p {

@@ -35,6 +35,7 @@ const initialCost = 1000
     appearance: none;
     width: 100%;
     background: var(--weak);
+    border-radius: 5px;
     outline: none;
     border: none;
     transition: opacity .2s;
@@ -61,6 +62,17 @@ const initialCost = 1000
     padding-left: 0.5rem;
 
     border: 2px solid var(--weak);
+
+    border-radius: 5px;
+}
+
+.display.pris {
+    border-radius: 0 5px 5px 0;
+    border-left: none;
+}
+
+.display:not(.pris) {
+    border-radius: 5px 0 0 5px;
 }
 
 .pris {
