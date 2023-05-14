@@ -45,7 +45,7 @@ const { name, selfie, classes } = defineProps<{
 }
 
 .card-image {
-    width: 10rem;
+    height: 9rem;
     border-radius: 50%;
 }
 

@@ -4,32 +4,33 @@ import Button from "@/components/Button.vue"
 import { collection, doc, setDoc } from "firebase/firestore"
 import { db } from "@/firebase"
 import { ref } from "vue"
+import { useRoute } from "vue-router"
 
-const defaultProps = {
+const driverID = useRoute().params.id as string
+
+const formData = ref({
     name: "",
     phone: "",
     email: "",
-    teacher: "",
+    teacher: driverID,
     course: "",
     message: ""
-}
-
-const formData = ref<{
-    name: string,
-    phone: string,
-    email: string,
-    teacher: string,
-    course: string,
-    message: string
-}>(defaultProps)
+})
 
 
 async function sendForm() {
     const collectionRef = collection(db, "drive")
-    console.log(formData.value)
     await setDoc(doc(collectionRef, formData.value.email), formData.value)
 
-    formData.value = defaultProps
+    formData.value = {} as any
+    formData.value = {
+        name: "",
+        phone: "",
+        email: "",
+        teacher: driverID,
+        course: "",
+        message: ""
+    }
 }
 </script>
 
@@ -59,26 +60,29 @@ async function sendForm() {
 
             <Flex direction="column" align="stretch">
                 <p class="tip">Kjørelærer</p>
-                <select name="Hvem vil du bli opplært av?" id="">
-                    <option value="">sddwdwdw</option>
+                <select v-model="formData.teacher" name="Hvem vil du bli opplært av?" id="">
+                    <option value="preben">Preben</option>
+                    <option value="harald">Harald</option>
+                    <option value="kari">Kari</option>
                 </select>
             </Flex>
             <Flex direction="column" align="stretch">
                 <p class="tip">Kurs</p>
-                <select name="Hva vil du lære?" id="">
-                    <option value="">sddwdwdw</option>
+                <select v-model="formData.course" name="Hva vil du lære?" id="">
+                    <option value="a1">A1 (BIL)</option>
+                    <option value="b1">B1 (MOTORSYKKEL)</option>
                 </select>
             </Flex>
 
             <Flex direction="column">
                 <p class="tip">Melding</p>
-                <textarea name="" id="" cols="30" rows="10" placeholder="Jeg har allerde gjennomført trinnvurdering 2 og 3."></textarea>
+                <textarea v-model="formData.message" name="" id="" cols="30" rows="10" placeholder="Jeg har allerde gjennomført trinnvurdering 2 og 3."></textarea>
             </Flex>
         </Flex>
 
         <Flex justify="space-between" align="center" class="grow">
             <p>Vi kontakter deg på mail om ledige timer og pris.</p>
-            <Button theme="color">Send</Button>
+            <Button @click="sendForm" theme="color">Send</Button>
         </Flex>
     </Flex>
 </Flex>

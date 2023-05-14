@@ -53,9 +53,9 @@ function updateRoute() {
   <Separator></Separator>
 
   <Flex align="stretch" gap="6">
-    <Flex class="left" direction="column" gap="1" grow="1">
-      <Flex class="left" direction="column" gap="1" grow="1">
-        <h1>Pris kalkulator</h1>
+    <Flex class="left" direction="column" gap="0.75" grow="1">
+      <Flex class="left" direction="column" gap="0.75" grow="1">
+        <h2>Pris kalkulator</h2>
         <p :ref="(elem) => {scrollElement = elem}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         <PriceCalculator></PriceCalculator>
       </Flex>

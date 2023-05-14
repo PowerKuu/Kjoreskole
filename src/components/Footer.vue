@@ -2,12 +2,17 @@
 import Flex from "./FlexSystem.vue"
 import Button from "./Button.vue"
 import { ref } from "vue"
+import { collection, doc, setDoc } from "firebase/firestore"
+import { db } from "@/firebase"
 
 const mail = ref("")
 const placeholder = ref("eksempel@gmail.com")
 
-function mailSubmit() {
-    console.log(mail.value)
+async function mailSubmit() {
+    const collectionRef = collection(db, "mail")
+    await setDoc(doc(collectionRef, mail.value), {
+        mail: mail.value
+    })
 
     mail.value = ""
     placeholder.value = "Takk for din henvendelse!"

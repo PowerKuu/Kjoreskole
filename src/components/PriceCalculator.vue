@@ -5,14 +5,18 @@ import { ref } from "vue"
 const value = ref(10)
 
 const min = 1
-const max = 100
+const max = 99
 
 const costPerHour = 500
 const initialCost = 1000
 </script>
 
 <template>
-    <Flex justify="start" align="start" direction="column" gap="1" width="100%">
+    <Flex justify="start" align="stretch" direction="column" gap="1" width="100%">
+        <select>
+            <option value="a1">A1 (BIL)</option>
+            <option value="b1">B1 (MOTORSYKKEL)</option>
+        </select>
         <input class="range" v-model="value" type="range" :min="min" :max="max">
         <Flex width="100%">
             <Flex direction="column" class="display">
