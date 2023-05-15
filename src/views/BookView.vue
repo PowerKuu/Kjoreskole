@@ -55,7 +55,7 @@ async function sendForm() {
 
             <Flex direction="column">
                 <p class="tip">Email</p>
-                <input v-model="formData.email" type="text" placeholder="per@ole.com">
+                <input v-model="formData.email" type="email" placeholder="per@ole.com">
             </Flex>
 
             <Flex direction="column" align="stretch">

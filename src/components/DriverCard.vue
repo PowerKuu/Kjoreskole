@@ -11,14 +11,14 @@ const { name, selfie, classes } = defineProps<{
 </script>
 
 <template>
-<Flex class="card" direction="column" gap="0.75" align="center" justify="center">
+<Flex class="card" direction="column" gap="0.5" align="center" justify="center">
     <img class="card-image" :src="selfie" alt="">
     <Flex direction="column" align="center">
         <p class="name">{{ name }}</p>
         <p class="classes">{{ classes.join(", ") }}</p>
     </Flex>
     <p><slot></slot></p>
-    <RouterLink :to="`/drive/${driverID}`">
+    <RouterLink class="button" :to="`/drive/${driverID}`">
         <Button theme="color">Book</Button>
     </RouterLink>
 </Flex>
@@ -26,11 +26,11 @@ const { name, selfie, classes } = defineProps<{
 
 <style scoped>
 .card {
-    max-height: 30rem;
-    min-height: 27.5rem;
+    max-height: 25rem;
+    min-height: 25rem;
     background-color: white;
     border: 2px solid var(--weak);
-    padding: 1rem;
+    padding: 2rem;
 
     text-align: center;
 
@@ -49,5 +49,9 @@ const { name, selfie, classes } = defineProps<{
 
 .classes {
     color: var(--color);
+}
+
+.button {
+    margin-top: auto;
 }
 </style>

@@ -5,15 +5,15 @@ import DriverCard from "@/components/DriverCard.vue"
 <template>
     <div class="cards">
         <DriverCard driverID="kari" :classes="['A1', 'B1']" selfie="/marthin.png" name="Kari sveitsborg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            Kari sveitsborg er en veldig flink sjåfør som har kjørt i 20 år.
         </DriverCard>
 
         <DriverCard driverID="harald" :classes="['B1']" selfie="/harald.png" name="Haralad sprett">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            Haralad sprett er en veldig flink sjåfør som har kjørt i 20 år.
         </DriverCard>
 
         <DriverCard driverID="preben" :classes="['A1']" selfie="/preben.png" name="Preben spekken">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            Preben spekken er en veldig flink sjåfør som har kjørt i 20 år.
         </DriverCard>
     </div>
 </template>

@@ -29,7 +29,7 @@ async function mailSubmit() {
                     kampanjer ved å registrere deg på vår mailliste.
                 </p>
                 <Flex align="stretch" class="form">
-                    <input class="input" v-model="mail" :placeholder="placeholder" type="text">
+                    <input class="input" v-model="mail" :placeholder="placeholder" type="email">
                     <Button class="submit" theme="white" @click="mailSubmit">Send</Button>
                 </Flex>
             </Flex>
