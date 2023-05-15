@@ -24,7 +24,10 @@ async function mailSubmit() {
         <Flex direction="column" gap="1">
             <h4>Få tilbud i innboksen</h4>
             <Flex align="stretch" grow="1" class="contact" direction="column">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                <p>
+                    Få varsling om tilbud og 
+                    kampanjer ved å registrere deg på vår mailliste.
+                </p>
                 <Flex align="stretch" class="form">
                     <input class="input" v-model="mail" :placeholder="placeholder" type="text">
                     <Button class="submit" theme="white" @click="mailSubmit">Send</Button>
@@ -38,13 +41,13 @@ async function mailSubmit() {
                 <RouterLink to="/">
                     <p>Hjem</p>
                 </RouterLink>
-                <RouterLink to="/">
+                <RouterLink to="/contact">
                     <p>Kontakt</p>
                 </RouterLink>
-                <RouterLink to="/">
+                <RouterLink to="/about">
                     <p>Om oss</p>
                 </RouterLink>
-                <RouterLink to="/">
+                <RouterLink to="/drive">
                     <p>Bestill time</p>
                 </RouterLink>
             </Flex>

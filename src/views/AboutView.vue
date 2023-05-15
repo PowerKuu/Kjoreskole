@@ -5,7 +5,7 @@ import Flex from "@/components/FlexSystem.vue"
 </script>
 
 <template>
-    <Flex class="about" justify="space-between" align="stretch" gap="7">
+    <Flex class="about" justify="space-between" align="stretch">
         <Flex direction="column" grow="1" gap="2" justify="center">
             <h2>Om kjøreskolen</h2>
             
@@ -25,6 +25,8 @@ import Flex from "@/components/FlexSystem.vue"
 <style scoped>
 .about {
     min-height: 50vh;
+
+    gap: 8vw !important;
 }
 
 iframe {

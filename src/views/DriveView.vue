@@ -3,7 +3,7 @@ import Flex from "@/components/FlexSystem.vue"
 import DriverCard from "@/components/DriverCard.vue"
 </script>
 <template>
-    <Flex class="cards" gap="1">
+    <div class="cards">
         <DriverCard driverID="kari" :classes="['A1', 'B1']" selfie="/marthin.png" name="Kari sveitsborg">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         </DriverCard>
@@ -15,9 +15,13 @@ import DriverCard from "@/components/DriverCard.vue"
         <DriverCard driverID="preben" :classes="['A1']" selfie="/preben.png" name="Preben spekken">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         </DriverCard>
-    </Flex>
+    </div>
 </template>
 
 <style scoped>
-
+.cards {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(3, 1fr)
+}
 </style>

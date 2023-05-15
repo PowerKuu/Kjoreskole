@@ -26,8 +26,6 @@ const { name, selfie, classes } = defineProps<{
 
 <style scoped>
 .card {
-    max-width: 20rem;
-    min-width: 20rem;
     max-height: 30rem;
     min-height: 27.5rem;
     background-color: white;

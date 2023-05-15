@@ -38,8 +38,14 @@ function updateRoute() {
   <Flex align="stretch" gap="1">
     <Flex class="left" direction="column" grow="1.5" gap="1.5">
       <h1>Lær <span>effektivt</span> <br> hos kjøreskolen</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <Flex gap="1" class="space">
+        <p>
+          Vi er en pålitelig og erfaren kjøreskole som er dedikert til 
+          å gi våre elever den beste opplæringen og veiledningen i å 
+          kjøre bil. Vårt mål er å gi deg den kompetansen og 
+          selvtilliten du trenger for å bli en trygg og ansvarlig 
+          sjåfør på veien.
+        </p>
+        <Flex gap="1" class="space">
         <RouterLink to="/drive"><Button theme="color">Kjør</Button></RouterLink>
         <RouterLink to="/about"><Button theme="none">Om oss</Button></RouterLink>
       </Flex>
@@ -52,11 +58,16 @@ function updateRoute() {
 
   <Separator></Separator>
 
-  <Flex align="stretch" gap="6">
+  <Flex class="section" align="stretch">
     <Flex class="left" direction="column" gap="0.75" grow="1">
       <Flex class="left" direction="column" gap="0.75" grow="1">
         <h2>Pris kalkulator</h2>
-        <p :ref="(elem) => {scrollElement = elem}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p :ref="(elem) => {scrollElement = elem}">
+          På vår kjøreskole ønsker vi å gjøre det enkelt for 
+          deg å forstå kostnadene ved å ta førerkort. Bruk 
+          priskalkulatoren for å beregne kostnadene for våre 
+          ulike programmer.
+        </p>
         <PriceCalculator></PriceCalculator>
       </Flex>
       <Flex gap="1">
@@ -82,6 +93,10 @@ function updateRoute() {
 
 .space {
   margin-top: auto;
+}
+
+.section {
+  gap: 7vw !important;
 }
 
 .car-illustration {
