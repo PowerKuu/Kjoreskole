@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import Flex from "@/components/FlexSystem.vue"
 import Button from "@/components/Button.vue"
-import { collection, doc, setDoc } from "firebase/firestore"
+import { collection, doc, getDoc, getDocs, setDoc } from "firebase/firestore"
 import { db } from "@/firebase"
 import { ref } from "vue"
 import { useRoute } from "vue-router"
 
 const driverID = useRoute().params.id as string
+
+const drivers = ref<{
+    name: string
+    id: string
+}[]>([])
 
 const formData = ref({
     name: "",
@@ -32,6 +37,17 @@ async function sendForm() {
         message: ""
     }
 }
+
+getDocs(collection(db, "drivers")).then((snapshot) => {
+    snapshot.forEach((doc) => {
+        const data = doc.data()
+
+        drivers.value.push({
+            name: data.name,
+            id: data.id
+        })
+    })
+})
 </script>
 
 <template>
@@ -61,9 +77,9 @@ async function sendForm() {
             <Flex direction="column" align="stretch">
                 <p class="tip">Kjørelærer</p>
                 <select v-model="formData.teacher" name="Hvem vil du bli opplært av?" id="">
-                    <option value="preben">Preben</option>
-                    <option value="harald">Harald</option>
-                    <option value="kari">Kari</option>
+                    <option v-for="driver of drivers" :value="driver.id">
+                        {{ driver.name }}
+                    </option>
                 </select>
             </Flex>
             <Flex direction="column" align="stretch">
